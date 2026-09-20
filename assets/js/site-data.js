@@ -31,11 +31,11 @@ window.EPYAL = {
     },
     {
       slug:"basketball", name:"Basketball", icon:"🏀", meta:"Winter • Kindergarten–12th Grade",
-      status:"Registration Open", statusClass:"open",
+      status:"Check Registration", statusClass:"soon",
       directors:"Dan White & Matt Snyder", email:"basketball@epyal.com",
       legacy:"https://tshq.bluesombrero.com/Default.aspx?tabid=2741306",
       summary:"Recreational and travel basketball programs for boys and girls from Kindergarten through 12th grade, subject to participation at each level.",
-      registration:"2026–27 registration opened September 5. The legacy page lists November 14 as the standard deadline, with late registration considered case-by-case.",
+      registration:"The public EPYAL page lists the 2026–27 basketball registration window for September 2026. Use Sports Connect for live program availability and current deadlines.",
       details:[
         ["Kindergarten Rec","Saturday morning sessions combine fundamentals, instruction and game play."],
         ["1st / 2nd Grade Rec","Weekly practice with Saturday games and age-appropriate development."],
@@ -103,7 +103,7 @@ window.EPYAL = {
     }
   ],
   registrations:[
-    {sport:"Basketball",icon:"🏀",status:"Open",statusClass:"open",window:"2026–27 • Standard deadline Nov. 14",description:"Recreational and travel basketball from Kindergarten through 12th grade.",slug:"basketball"},
+    {sport:"Basketball",icon:"🏀",status:"Check Availability",statusClass:"soon",window:"2026–27 • September registration window",description:"Recreational and travel basketball from Kindergarten through 12th grade. Sports Connect has the live availability.",slug:"basketball"},
     {sport:"Basketball Cheer",icon:"📣",status:"Seasonal",statusClass:"soon",window:"Fall 2026 • through Nov. 15",description:"Basketball Cheer registration is subject to the program's capacity.",slug:"cheer"},
     {sport:"Tackle Football",icon:"🏈",status:"Closed",statusClass:"closed",window:"2026 season",description:"Registration is closed. Contact football leadership with questions.",slug:"football"},
     {sport:"Flag Football",icon:"🚩",status:"Coming Soon",statusClass:"soon",window:"Summer 2027",description:"Next season details and registration dates are coming soon.",slug:"flag-football"}
@@ -111,7 +111,7 @@ window.EPYAL = {
   news:[
     {icon:"🏆",title:"Smurf Bowl Champions",summary:"Celebrate the Panthers' youth football championship tradition and the players, coaches and families behind it.",date:"League Highlight"},
     {icon:"📣",title:"Cheer Celebrates 75+ Years",summary:"EPYAL Cheer continues a deep local tradition through football, basketball, competition and community events.",date:"2026 Season"},
-    {icon:"🏀",title:"Basketball Registration",summary:"The 2026–27 basketball registration window is underway through the existing Sports Connect system.",date:"Fall 2026"}
+    {icon:"🏀",title:"Basketball Registration",summary:"2026–27 basketball registration information is available through the existing Sports Connect system.",date:"Fall 2026"}
   ],
   events:[
     {month:"OCT",day:"07",title:"Public Board Meeting",meta:"8:00 PM • Sheaffer Field — Upstairs"},
