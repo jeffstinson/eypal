@@ -38,7 +38,7 @@ button,input{font:inherit}
 .nav__login{border:1px solid #62666d;padding:10px 12px;border-radius:7px}
 .nav__cta{padding:11px 14px;border-radius:7px;background:linear-gradient(135deg,#f6511a,#f98200);color:#fff!important}
 .nav-toggle{display:none;margin-left:auto;background:transparent;border:0;color:#fff;font-size:1.75rem}
-.hero{position:relative;min-height:610px;display:flex;align-items:center;background:#111 url("/assets/images/epyal-football-hero.webp") center 45%/cover no-repeat}
+.hero{position:relative;min-height:610px;display:flex;align-items:center;background:#111 url("/assets/images/epyal-football-hero.jpg") center 45%/cover no-repeat}
 .hero__wash{position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,4,6,.95) 0%,rgba(3,4,6,.78) 38%,rgba(3,4,6,.30) 68%,rgba(3,4,6,.07) 100%)}
 .hero__content{position:relative;padding:82px 0;color:#fff}
 .eyebrow,.section-kicker{text-transform:uppercase;letter-spacing:.15em;color:var(--orange);font-size:.76rem;font-weight:950}
@@ -108,7 +108,7 @@ button,input{font:inherit}
 .legacy__stats strong{display:block;color:var(--orange);font-size:2.4rem;line-height:1;font-weight:1000}
 .legacy__stats span{display:block;color:#b8bbc0;margin-top:7px;font-size:.78rem}
 .photo-feature{display:grid;grid-template-columns:1.05fr .95fr;gap:58px;align-items:center}
-.photo-feature__visual{min-height:370px;border-radius:22px;padding:26px;background:linear-gradient(150deg,rgba(0,0,0,.2),rgba(0,0,0,.75)),url("/assets/images/epyal-football-hero.webp") center/cover;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow)}
+.photo-feature__visual{min-height:370px;border-radius:22px;padding:26px;background:linear-gradient(150deg,rgba(0,0,0,.2),rgba(0,0,0,.75)),url("/assets/images/epyal-football-hero.jpg") center/cover;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow)}
 .photo-feature__badge{align-self:flex-start;color:#fff;background:rgba(0,0,0,.72);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:7px 11px;font-size:.68rem;font-weight:950;letter-spacing:.08em}
 .photo-feature__tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 .photo-feature__tiles span{background:rgba(8,9,11,.82);border:1px solid rgba(255,255,255,.13);color:#fff;padding:11px;text-align:center;border-radius:9px;font-size:.7rem;font-weight:800}
