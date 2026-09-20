@@ -25,8 +25,7 @@ export default async function handler(req, res) {
     const resend = new Resend(apiKey);
     const { data, error } = await resend.contacts.create({
       email: normalized,
-      unsubscribed: false,
-      properties: { signup_source: 'epyal-website' }
+      unsubscribed: false
     });
     if (error) {
       const msg = String(error.message || '');
