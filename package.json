@@ -1,0 +1,10 @@
+{
+  "name": "epyal-website-demo",
+  "private": true,
+  "version": "0.1.0",
+  "description": "EPYAL public website demo for Vercel",
+  "dependencies": {
+    "resend": "^6.0.0"
+  },
+  "type": "module"
+}
