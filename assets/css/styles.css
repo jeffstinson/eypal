@@ -1,0 +1,222 @@
+:root{
+  --black:#08090b;
+  --black-2:#111318;
+  --ink:#17191d;
+  --muted:#666b74;
+  --line:#e2e4e7;
+  --soft:#f4f5f6;
+  --orange:#f56a18;
+  --orange-2:#ff7a00;
+  --green:#1d8551;
+  --white:#fff;
+  --shell:1180px;
+  --radius:18px;
+  --shadow:0 18px 55px rgba(20,23,28,.10)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.55}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+.shell{width:min(var(--shell),calc(100% - 40px));margin-inline:auto}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.announcement{background:linear-gradient(90deg,#f44f1a,#ff7b00);color:#fff;font-size:.82rem;font-weight:700}
+.announcement__inner{min-height:38px;display:flex;align-items:center;justify-content:center;gap:18px;text-align:center}
+.announcement a{padding:5px 10px;border-radius:999px;background:rgba(9,10,12,.82);font-size:.72rem;text-transform:uppercase;letter-spacing:.04em}
+.site-header{position:sticky;top:0;z-index:50;background:rgba(8,9,11,.96);border-bottom:1px solid rgba(255,116,24,.25);backdrop-filter:blur(14px)}
+.nav-shell{height:88px;display:flex;align-items:center;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;flex:0 0 auto}
+.brand img{width:60px;height:60px;object-fit:contain}
+.brand__copy{display:grid;line-height:.93;color:#fff}
+.brand__kicker{font-size:.69rem;letter-spacing:.23em;font-weight:900}
+.brand__name{font-size:1.6rem;letter-spacing:.015em;font-weight:1000}
+.brand__sub{font-size:.61rem;letter-spacing:.08em;color:#b7bbc1;font-weight:800;margin-top:5px}
+.nav{margin-left:auto;display:flex;align-items:center;gap:17px}
+.nav a{font-size:.72rem;text-transform:uppercase;letter-spacing:.025em;font-weight:850;color:#e9eaec;transition:.18s}
+.nav a:hover{color:var(--orange)}
+.nav__login{border:1px solid #62666d;padding:10px 12px;border-radius:7px}
+.nav__cta{padding:11px 14px;border-radius:7px;background:linear-gradient(135deg,#f6511a,#f98200);color:#fff!important}
+.nav-toggle{display:none;margin-left:auto;background:transparent;border:0;color:#fff;font-size:1.75rem}
+.hero{position:relative;min-height:610px;display:flex;align-items:center;background:#111 url("/assets/images/epyal-football-hero.webp") center 45%/cover no-repeat}
+.hero__wash{position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,4,6,.95) 0%,rgba(3,4,6,.78) 38%,rgba(3,4,6,.30) 68%,rgba(3,4,6,.07) 100%)}
+.hero__content{position:relative;padding:82px 0;color:#fff}
+.eyebrow,.section-kicker{text-transform:uppercase;letter-spacing:.15em;color:var(--orange);font-size:.76rem;font-weight:950}
+.hero h1{max-width:790px;margin:12px 0 20px;font-size:clamp(3rem,6vw,5.45rem);line-height:.91;letter-spacing:-.04em;text-transform:uppercase;font-weight:1000}
+.hero h1 span{color:var(--orange)}
+.hero p{max-width:570px;margin:0;color:#dcdee2;font-size:1.08rem}
+.button-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border-radius:8px;border:1px solid transparent;font-size:.78rem;font-weight:950;letter-spacing:.035em;text-transform:uppercase;cursor:pointer;transition:.2s}
+.button:hover{transform:translateY(-1px)}
+.button--orange{color:#fff;background:linear-gradient(135deg,#f4531a,#ff8000);box-shadow:0 9px 30px rgba(245,106,24,.22)}
+.button--ghost{color:#fff;border-color:#858991;background:rgba(0,0,0,.28)}
+.button--dark{color:#fff;background:#111318}
+.button--outline{color:#181a1f;background:#fff;border-color:#ccd0d5}
+.hero__trust{display:flex;flex-wrap:wrap;gap:26px;margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,.17);max-width:720px;color:#bfc2c7;font-size:.77rem}
+.hero__trust strong{color:#fff;margin-right:5px;font-size:.94rem}
+.section{padding:78px 0}
+.section--white{background:#fff}
+.section--soft{background:linear-gradient(#f7f8f9,#f1f2f4)}
+.section--dark{background:#111318;color:#fff}
+.section--black{background:#07080a;color:#fff}
+.section-heading{text-align:center;max-width:760px;margin:0 auto 38px}
+.section-heading--left{text-align:left;margin-left:0}
+.section-heading.compact{margin-bottom:25px}
+.section-heading h2,.legacy h2,.photo-feature h2,.newsletter h2{font-size:clamp(2rem,4vw,3.25rem);letter-spacing:-.035em;line-height:1.02;margin:8px 0 11px;font-weight:1000}
+.section-heading p{margin:0;color:var(--muted)}
+.section-heading--on-dark p{color:#b0b4ba}
+.sport-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:12px}
+.sport-card{position:relative;border:1px solid var(--line);border-radius:15px;padding:23px 13px;background:#fff;text-align:center;min-height:166px;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:.2s;overflow:hidden}
+.sport-card:after{content:"";position:absolute;inset:auto 0 0;height:3px;background:linear-gradient(90deg,var(--orange),var(--orange-2));transform:scaleX(0);transition:.2s}
+.sport-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#ffc19f}
+.sport-card:hover:after{transform:scaleX(1)}
+.sport-card__icon{font-size:2.2rem;margin-bottom:11px}
+.sport-card strong{font-size:.83rem;text-transform:uppercase}
+.sport-card span{font-size:.7rem;color:var(--muted);margin-top:5px}
+.system-note{display:flex;gap:15px;align-items:center;background:#111318;color:#fff;padding:18px 20px;border-radius:13px;margin-bottom:24px}
+.system-note__icon{flex:0 0 42px;width:42px;height:42px;border-radius:10px;display:grid;place-items:center;background:var(--orange);font-weight:1000}
+.system-note strong,.system-note span{display:block}
+.system-note span{font-size:.8rem;color:#babdc2;margin-top:3px}
+.registration-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.registration-card{background:#fff;border:1px solid #e1e3e6;border-radius:15px;padding:21px;display:flex;flex-direction:column;gap:9px;box-shadow:0 8px 25px rgba(20,23,28,.04)}
+.registration-card__top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.registration-card__icon{font-size:1.8rem}
+.pill{display:inline-flex;padding:5px 9px;border-radius:999px;font-size:.64rem;text-transform:uppercase;letter-spacing:.05em;font-weight:950}
+.pill--open{background:#dff4e7;color:#17683f}
+.pill--closed{background:#e8e9eb;color:#5c6168}
+.pill--soon{background:#fff0dd;color:#975b09}
+.registration-card h3{margin:3px 0 0;font-size:1.13rem}
+.registration-card small{color:#555b63;font-weight:750}
+.registration-card p{color:var(--muted);font-size:.84rem;margin:0 0 5px;flex:1}
+.registration-card .button{width:100%;margin-top:8px}
+.split-layout{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.news-list,.event-list{display:grid;gap:14px}
+.news-card{display:grid;grid-template-columns:92px 1fr;gap:15px;align-items:center;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.news-card__visual{height:72px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,#121419,#322517);font-size:1.75rem}
+.news-card h3,.event-card h3{font-size:.95rem;margin:0 0 3px}
+.news-card p,.event-card p{font-size:.78rem;color:var(--muted);margin:0}
+.news-card time{font-size:.68rem;color:#8b8f95}
+.event-card{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.date-box{border:1px solid #d8dade;background:#fff;border-radius:9px;text-align:center;padding:7px}
+.date-box span{display:block;color:var(--orange);font-size:.65rem;font-weight:950;text-transform:uppercase}
+.date-box strong{font-size:1.45rem;line-height:1.05}
+.legacy__grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:center}
+.legacy p{color:#afb3ba;max-width:510px}
+.text-link{display:inline-block;margin-top:12px;color:var(--orange);font-weight:850}
+.legacy__stats{display:grid;grid-template-columns:1fr 1fr;border:1px solid #303239;border-radius:18px;overflow:hidden;background:#292c31;gap:1px}
+.legacy__stats div{background:#0b0c0f;padding:34px}
+.legacy__stats strong{display:block;color:var(--orange);font-size:2.4rem;line-height:1;font-weight:1000}
+.legacy__stats span{display:block;color:#b8bbc0;margin-top:7px;font-size:.78rem}
+.photo-feature{display:grid;grid-template-columns:1.05fr .95fr;gap:58px;align-items:center}
+.photo-feature__visual{min-height:370px;border-radius:22px;padding:26px;background:linear-gradient(150deg,rgba(0,0,0,.2),rgba(0,0,0,.75)),url("/assets/images/epyal-football-hero.webp") center/cover;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow)}
+.photo-feature__badge{align-self:flex-start;color:#fff;background:rgba(0,0,0,.72);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:7px 11px;font-size:.68rem;font-weight:950;letter-spacing:.08em}
+.photo-feature__tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.photo-feature__tiles span{background:rgba(8,9,11,.82);border:1px solid rgba(255,255,255,.13);color:#fff;padding:11px;text-align:center;border-radius:9px;font-size:.7rem;font-weight:800}
+.photo-feature p{color:var(--muted)}
+.involve-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.feature-card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:24px}
+.feature-card__icon{font-size:1.8rem}
+.feature-card h3{margin:11px 0 5px}
+.feature-card p{font-size:.82rem;color:var(--muted)}
+.feature-card a{color:var(--orange);font-weight:850;font-size:.8rem}
+.sponsor-grid{display:grid;grid-template-columns:1.35fr repeat(3,1fr);gap:13px}
+.sponsor-slot{min-height:145px;border:1px solid #292c32;border-radius:15px;background:#101216;padding:22px;display:flex;flex-direction:column;justify-content:center;text-align:center}
+.sponsor-slot--featured{background:linear-gradient(135deg,#1a1c20,#2c1b10);border-color:#61351d}
+.sponsor-slot small{color:var(--orange);font-weight:950;letter-spacing:.08em}
+.sponsor-slot strong{font-size:1.2rem;margin:6px 0}
+.sponsor-slot span{color:#969aa1;font-size:.75rem}
+.centered-actions{text-align:center;margin-top:26px}
+.leadership-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.leader-card{border:1px solid var(--line);border-radius:14px;background:#fff;padding:20px}
+.leader-card small{color:var(--orange);font-size:.65rem;text-transform:uppercase;font-weight:950;letter-spacing:.07em}
+.leader-card h3{margin:6px 0 3px;font-size:1rem}
+.leader-card p{margin:0;color:var(--muted);font-size:.77rem}
+.leader-card a{display:inline-block;margin-top:10px;color:#3e4248;font-size:.74rem;font-weight:800}
+.newsletter-section{background:linear-gradient(120deg,#101216,#21150f);color:#fff}
+.newsletter{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.newsletter p{color:#b9bdc3}
+.newsletter-form__row{display:grid;grid-template-columns:1fr auto;gap:9px}
+.newsletter-form input[type=email]{width:100%;min-width:0;height:48px;border:1px solid #50545b;border-radius:8px;padding:0 14px;background:#fff;color:#101216}
+.consent{display:flex;gap:8px;margin-top:10px;color:#b3b6bc;font-size:.71rem;align-items:flex-start}
+.form-status{font-size:.77rem;min-height:1.2em;margin-top:9px}
+.hp-field{position:absolute;left:-9999px;opacity:0;pointer-events:none}
+.footer{background:#060709;color:#fff;border-top:1px solid #22252a;padding:48px 0 18px}
+.footer__grid{display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:40px}
+.footer__brand{display:flex;gap:14px;align-items:flex-start}
+.footer__brand img{width:76px;height:76px;object-fit:contain}
+.footer__brand strong{font-size:1.05rem}
+.footer__brand p{color:#9b9fa6;font-size:.77rem;max-width:250px}
+.footer h3{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;margin:0 0 10px;color:#c5c8cd}
+.footer a{display:block;color:#90949b;font-size:.76rem;margin:6px 0}
+.footer a:hover{color:var(--orange)}
+.footer__bottom{display:flex;justify-content:space-between;gap:20px;border-top:1px solid #24262b;padding-top:18px;margin-top:30px;color:#747880;font-size:.68rem}
+
+/* SPORT DETAIL */
+.sport-hero{background:#0a0b0d;color:#fff;padding:72px 0 62px;position:relative;overflow:hidden}
+.sport-hero:after{content:"";position:absolute;right:-120px;top:-180px;width:520px;height:520px;background:radial-gradient(circle,rgba(245,106,24,.22),transparent 67%)}
+.breadcrumbs{color:#90949a;font-size:.72rem}
+.sport-hero__grid{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end;margin-top:26px}
+.sport-hero__icon{font-size:4.4rem}
+.sport-hero h1{margin:7px 0 8px;font-size:clamp(3rem,7vw,5.4rem);line-height:.93;text-transform:uppercase;letter-spacing:-.04em;font-weight:1000}
+.sport-hero p{max-width:750px;color:#c7cad0}
+.sport-layout{display:grid;grid-template-columns:1.55fr .75fr;gap:45px}
+.content-card{border:1px solid var(--line);border-radius:16px;padding:23px;background:#fff}
+.detail-stack{display:grid;gap:11px;margin-top:20px}
+.detail-row{border:1px solid var(--line);border-radius:12px;padding:17px}
+.detail-row strong{display:block;margin-bottom:4px}
+.detail-row span{color:var(--muted);font-size:.84rem}
+.sport-sidebar{border:1px solid var(--line);border-radius:16px;padding:22px;background:#fff;box-shadow:var(--shadow);align-self:start;position:sticky;top:112px}
+.sport-sidebar__item{padding:11px 0;border-bottom:1px solid var(--line)}
+.sport-sidebar__item:last-child{border-bottom:0}
+.sport-sidebar__item small{display:block;color:var(--muted);text-transform:uppercase;font-size:.62rem;font-weight:900;letter-spacing:.06em}
+.sport-sidebar__item strong{display:block;margin-top:2px;font-size:.9rem}
+.sport-sidebar .button{width:100%;margin-top:12px}
+.callout{border-left:4px solid var(--orange);background:#fff5ee;border-radius:0 10px 10px 0;padding:17px 19px;margin:22px 0;color:#53483f}
+
+@media(max-width:1120px){
+  .nav{gap:10px}.nav a{font-size:.67rem}.brand__sub{display:none}
+  .sport-grid{grid-template-columns:repeat(4,1fr)}
+  .registration-grid{grid-template-columns:repeat(2,1fr)}
+  .leadership-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:900px){
+  .shell{width:min(var(--shell),calc(100% - 28px))}
+  .announcement__inner{justify-content:space-between}
+  .nav-shell{height:74px}
+  .brand img{width:50px;height:50px}
+  .brand__name{font-size:1.28rem}
+  .nav-toggle{display:block}
+  .nav{display:none;position:absolute;left:0;right:0;top:74px;background:#090a0c;padding:18px 20px;flex-direction:column;align-items:stretch;border-top:1px solid #292b30}
+  .nav.is-open{display:flex}
+  .nav a{padding:9px 3px}
+  .hero{min-height:570px;background-position:61% center}
+  .hero__wash{background:linear-gradient(90deg,rgba(3,4,6,.95),rgba(3,4,6,.72) 58%,rgba(3,4,6,.40))}
+  .split-layout,.legacy__grid,.photo-feature,.newsletter,.sport-layout{grid-template-columns:1fr}
+  .legacy__grid,.photo-feature{gap:36px}
+  .involve-grid{grid-template-columns:repeat(2,1fr)}
+  .sponsor-grid{grid-template-columns:repeat(2,1fr)}
+  .leadership-grid{grid-template-columns:repeat(2,1fr)}
+  .footer__grid{grid-template-columns:1fr 1fr}
+  .sport-sidebar{position:relative;top:auto}
+}
+@media(max-width:600px){
+  .announcement__inner{min-height:44px;gap:8px}.announcement a{white-space:nowrap}
+  .brand__kicker,.brand__sub{display:none}.brand__name{font-size:1rem}
+  .hero{min-height:620px;background-position:64% center}
+  .hero__content{padding:62px 0}
+  .hero h1{font-size:2.8rem}
+  .hero__trust{display:grid;gap:7px}
+  .section{padding:58px 0}
+  .sport-grid{grid-template-columns:1fr 1fr}
+  .sport-card{min-height:145px}
+  .registration-grid,.involve-grid,.sponsor-grid,.leadership-grid{grid-template-columns:1fr}
+  .legacy__stats{grid-template-columns:1fr 1fr}
+  .legacy__stats div{padding:22px 15px}
+  .photo-feature__visual{min-height:310px}
+  .photo-feature__tiles{grid-template-columns:1fr 1fr}
+  .newsletter-form__row{grid-template-columns:1fr}
+  .footer__grid{grid-template-columns:1fr}
+  .footer__bottom{flex-direction:column}
+  .sport-hero__grid{grid-template-columns:1fr}
+  .sport-hero__icon{font-size:3rem}
+}
