@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Newspaper } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Newspaper } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { getNews } from "@/lib/cms";
 
@@ -27,7 +28,7 @@ export default async function NewsPage() {
                 <h3>{item.title}</h3>
                 <p>{item.excerpt}</p>
               </div>
-              <span className="status-pill status-soon" style={{ position: "static" }}>League Update</span>
+              <Link className="button button-outline" href={`/news/${item.slug}`}>Read More <ArrowRight size={14} /></Link>
             </article>
           ))}
         </div>
