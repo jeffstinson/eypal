@@ -21,6 +21,8 @@ export function SiteFooter() {
           <Link href="/news">News</Link>
           <Link href="/events">Events</Link>
           <Link href="/photos">Photos</Link>
+          <Link href="/about">About EPYAL</Link>
+          <Link href="/locations">Locations</Link>
         </div>
 
         <div className="footer-column">
