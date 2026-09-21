@@ -1,90 +1,92 @@
-# EPYAL Vercel Demo
+# EPYAL Website
 
-Target public demo: `https://epyal.stincebuilt.com`
+Modern public website concept for the East Pennsboro Youth Athletic League.
 
-## Architecture
+## Phase 2 architecture
 
-- Static HTML/CSS/JS on Vercel
-- Vercel Function at `/api/subscribe`
-- Resend Contacts for newsletter signups
-- Sports Connect / Blue Sombrero remains the system of record for:
-  - parent login
-  - participant profiles
-  - program registration
-  - payments
-  - roster/registration operations
+- Next.js 16 / React 19
+- Vercel hosting and Git deployments
+- Responsive East Penn Panthers design system
+- Real multi-page information architecture
+- Sports Connect / Blue Sombrero remains the registration, parent account and payment system of record
+- Supabase-ready CMS with seeded fallback content
+- Role-aware admin foundation
+- Newsletter endpoint prepared for Supabase subscriber storage and Resend delivery
 
-Every registration and Parent Login CTA opens Sports Connect in a new browser tab.
+## Public routes
 
-## Content represented in the demo
+- `/`
+- `/sports`
+- `/sports/[sport]`
+- `/registration`
+- `/news`
+- `/events`
+- `/photos`
+- `/volunteer`
+- `/sponsors`
+- `/leadership`
+- `/contact`
+- `/about`
+- `/locations`
+- `/privacy`
 
-- Baseball
-- Softball
-- Basketball
-- Tackle Football
-- Cheerleading
-- Field Hockey
-- Flag Football
-- Registration center
-- Leadership directory
-- Get Involved
-- Sponsors / fundraising
-- Photos
-- About / Contact
-- Upcoming public board events
-- Newsletter signup
+## CMS
+
+The website runs safely from `lib/site-content.ts` when Supabase is not configured.
+
+When these are set:
+
+```
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+```
+
+the public collections can read from Supabase and `/admin` becomes the content-management surface.
+
+Database setup:
+
+`supabase/schema.sql`
+
+The schema includes:
+
+- sports / registration state
+- homepage settings
+- news
+- events
+- sponsors
+- leadership
+- newsletter subscribers
+- editor profiles and roles
+
+Editor roles include admin, marketing, sport director, photo admin and fundraising.
+
+Sport directors can be limited to their own sport.
 
 ## Newsletter
 
-The form posts to `/api/subscribe`.
+The endpoint is:
 
-The serverless function:
-- validates email
-- requires consent
-- includes a honeypot
-- keeps the Resend API key server-side
-- creates a Resend Contact
-- treats duplicates as a successful subscription experience
+`POST /api/subscribe`
 
-Set this Vercel environment variable:
+It can store the consented subscriber in Supabase and optionally add the address to a Resend audience.
 
-`RESEND_API_KEY`
+Optional email variables:
 
-## Vercel deployment
+```
+RESEND_API_KEY=
+RESEND_AUDIENCE_ID=
+NEWSLETTER_FROM_EMAIL=
+```
 
-This folder is ready to deploy as a Vercel project. No framework is required.
+## Registration safety
 
-Recommended project name:
+The public site intentionally does not duplicate child DOB, medical, waiver, payment or parent credential data. Registration CTAs open Sports Connect in a new browser tab.
 
-`epyal-website`
+## Deployment
 
-## Custom subdomain
+Production currently uses Vercel and the custom preview domain:
 
-After the project is live:
+`https://epyal.stincebuilt.com`
 
-1. Vercel Project → Settings → Domains
-2. Add `epyal.stincebuilt.com`
-3. At the DNS provider for `stincebuilt.com`, create the exact record Vercel requests.
-4. Remove any existing conflicting A/AAAA/CNAME record for the `epyal` host before adding the Vercel record.
-5. Wait for Vercel to show the domain as Valid Configuration.
-6. Vercel provisions TLS/SSL automatically after validation.
-
-This is DNS mapping, not a browser redirect. Visitors keep seeing `epyal.stincebuilt.com`.
-
-## Current update model
-
-For the working demo, frequently changed homepage content lives in:
-
-`assets/js/site-data.js`
-
-The planned production phase is to move sports, registration windows, announcements, events, sponsors, board members, and homepage banners into a small admin/CMS so board members can update content without editing code.
-
-## Important
-
-This is a working public-site demo, not a replacement for Sports Connect.
-Do not copy child DOBs, medical data, registration payments, waivers, or parent credentials into this site.
-
-
-## Deployment trigger
-
-Fresh production deployment trigger after Vercel Git connection was established on 2026-09-20.
+Phase 2 should be reviewed as a Vercel Preview before it is merged into `main`.
