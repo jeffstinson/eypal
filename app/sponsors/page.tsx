@@ -2,13 +2,15 @@ import type { Metadata } from "next";
 import { Building2, HeartHandshake, Megaphone, Trophy } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
+import { getSponsors } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Sponsors",
   description: "EPYAL sponsorship and community partnership opportunities."
 };
 
-export default function SponsorsPage() {
+export default async function SponsorsPage() {
+  const sponsors = await getSponsors();
   return (
     <>
       <PageHero
@@ -41,10 +43,13 @@ export default function SponsorsPage() {
         <div className="container">
           <SectionHeading eyebrow="Why It Matters" title="Make sponsorship easier to sell and renew" description="A structured sponsor database can eventually track logos, tiers, websites, sports, start dates and renewal dates — all feeding directly into the website." />
           <div className="sponsor-preview-grid">
-            <div className="sponsor-preview featured"><span>Premier Partner</span><strong>Your Business</strong><small>Homepage • league-wide • digital visibility</small></div>
-            <div className="sponsor-preview"><span>Sport Partner</span><strong>Your Logo</strong><small>Sport page • seasonal visibility</small></div>
-            <div className="sponsor-preview"><span>Community Partner</span><strong>Your Logo</strong><small>Sponsor directory • community support</small></div>
-            <div className="sponsor-preview"><span>Community Partner</span><strong>Your Logo</strong><small>League recognition • local families</small></div>
+            {sponsors.map((sponsor, index) => (
+              <div className={`sponsor-preview ${index === 0 ? "featured" : ""}`} key={`${sponsor.name}-${index}`}>
+                <span>{sponsor.tier} Partner</span>
+                <strong>{sponsor.name}</strong>
+                <small>{sponsor.sport ? `${sponsor.sport} • ` : ""}Digital visibility • community support</small>
+              </div>
+            ))}
           </div>
           <div className="center-actions">
             <a className="button button-orange" href="mailto:fundraising@epyal.com?subject=EPYAL%20Sponsorship%20Interest">Talk to Fundraising</a>
