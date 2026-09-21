@@ -2,14 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ExternalLink, ShieldCheck } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
-import { sports, sportsConnectRoot } from "@/lib/site-content";
+import { sportsConnectRoot } from "@/lib/site-content";
+import { getSports } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Registration",
   description: "EPYAL youth sports registration center."
 };
 
-export default function RegistrationPage() {
+export default async function RegistrationPage() {
+  const sports = await getSports();
   return (
     <>
       <PageHero
