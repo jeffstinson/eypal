@@ -2,14 +2,15 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { SportCard } from "@/components/SportCard";
 import { SectionHeading } from "@/components/SectionHeading";
-import { sports } from "@/lib/site-content";
+import { getSports } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Sports",
   description: "Explore EPYAL youth sports programs."
 };
 
-export default function SportsPage() {
+export default async function SportsPage() {
+  const sports = await getSports();
   return (
     <>
       <PageHero
