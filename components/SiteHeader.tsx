@@ -16,19 +16,32 @@ const nav = [
   { href: "/leadership", label: "Leadership" }
 ];
 
-export function SiteHeader() {
+type Announcement = {
+  enabled?: boolean;
+  message?: string;
+  url?: string;
+  linkLabel?: string;
+} | null;
+
+export function SiteHeader({ announcement }: { announcement?: Announcement }) {
   const [open, setOpen] = useState(false);
+  const showAnnouncement = announcement?.enabled !== false;
+  const announcementMessage = announcement?.message || "2026–27 Basketball: check Sports Connect for live registration availability.";
+  const announcementUrl = announcement?.url || sportsConnectRoot;
+  const announcementLabel = announcement?.linkLabel || "Sports Connect";
 
   return (
     <>
-      <div className="announcement-bar">
-        <div className="container announcement-inner">
-          <span><strong>2026–27 Basketball:</strong> check Sports Connect for live registration availability.</span>
-          <a href={sportsConnectRoot} target="_blank" rel="noreferrer">
-            Sports Connect <ExternalLink size={13} />
-          </a>
+      {showAnnouncement ? (
+        <div className="announcement-bar">
+          <div className="container announcement-inner">
+            <span>{announcementMessage}</span>
+            <a href={announcementUrl} target="_blank" rel="noreferrer">
+              {announcementLabel} <ExternalLink size={13} />
+            </a>
+          </div>
         </div>
-      </div>
+      ) : null}
 
       <header className="site-header">
         <div className="container header-inner">
