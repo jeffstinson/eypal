@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import { CalendarDays } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
-import { events } from "@/lib/site-content";
+import { getEvents } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Events",
   description: "EPYAL events, board meetings and community activities."
 };
 
-export default function EventsPage() {
+export default async function EventsPage() {
+  const events = await getEvents();
   return (
     <>
       <PageHero
