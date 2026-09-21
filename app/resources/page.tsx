@@ -3,14 +3,15 @@ import Link from "next/link";
 import { BookOpen, ClipboardCheck, FileText, HelpCircle, ShieldCheck, Users } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
-import { resources } from "@/lib/resource-content";
+import { getResources } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Resources",
   description: "EPYAL parent, coach, volunteer, safety and policy resources for East Pennsboro youth sports."
 };
 
-export default function ResourcesPage() {
+export default async function ResourcesPage() {
+  const resources = await getResources();
   return (
     <>
       <PageHero
