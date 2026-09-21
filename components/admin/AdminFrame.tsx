@@ -3,17 +3,23 @@ import type { ReactNode } from "react";
 import type { EditorProfile } from "@/lib/admin-auth";
 import { logout } from "@/app/admin/actions";
 
-const sections = [
-  ["/admin", "Dashboard"],
-  ["/admin/sports", "Sports & Registration"],
-  ["/admin/news", "News"],
-  ["/admin/events", "Events"],
-  ["/admin/sponsors", "Sponsors"],
-  ["/admin/leadership", "Leadership"],
-  ["/admin/resources", "Resources"],
-  ["/admin/faqs", "FAQs"],
-  ["/admin/newsletter", "Newsletter"]
-] as const;
+type NavItem = {
+  href: string;
+  label: string;
+  roles: EditorProfile["role"][];
+};
+
+const sections: NavItem[] = [
+  { href: "/admin", label: "Dashboard", roles: ["admin","marketing","sport_director","photo_admin","fundraising"] },
+  { href: "/admin/sports", label: "Sports & Registration", roles: ["admin","marketing","sport_director"] },
+  { href: "/admin/news", label: "News", roles: ["admin","marketing"] },
+  { href: "/admin/events", label: "Events", roles: ["admin","marketing"] },
+  { href: "/admin/sponsors", label: "Sponsors", roles: ["admin","marketing","fundraising"] },
+  { href: "/admin/leadership", label: "Leadership", roles: ["admin"] },
+  { href: "/admin/resources", label: "Resources", roles: ["admin","marketing"] },
+  { href: "/admin/faqs", label: "FAQs", roles: ["admin","marketing"] },
+  { href: "/admin/newsletter", label: "Newsletter", roles: ["admin","marketing"] }
+];
 
 export function AdminFrame({
   active,
@@ -26,6 +32,8 @@ export function AdminFrame({
   email: string;
   children: ReactNode;
 }) {
+  const visibleSections = sections.filter(item => item.roles.includes(profile.role));
+
   return (
     <section className="admin-shell admin-shell-v2">
       <div className="container">
@@ -44,8 +52,8 @@ export function AdminFrame({
         <div className="admin-layout-v2">
           <aside className="admin-sidebar">
             <nav>
-              {sections.map(([href, label]) => (
-                <Link className={active === href ? "is-active" : ""} href={href} key={href}>{label}</Link>
+              {visibleSections.map(item => (
+                <Link className={active === item.href ? "is-active" : ""} href={item.href} key={item.href}>{item.label}</Link>
               ))}
             </nav>
             <div className="admin-sidebar-note">
