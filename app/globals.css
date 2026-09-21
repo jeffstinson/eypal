@@ -818,3 +818,27 @@ main { min-height: 70vh; }
 @media (max-width: 620px) {
   .resource-hub-grid { grid-template-columns: 1fr; }
 }
+
+
+.location-address-card {
+  min-height: 320px;
+  border-radius: 22px;
+  padding: 34px;
+  background: linear-gradient(145deg, #121419, #2a1b12);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+.location-address-card svg { color: var(--orange); margin-bottom: 26px; }
+.location-address-card span {
+  color: #b8bbc1;
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+.location-address-card strong { font-size: 1.45rem; line-height: 1.2; }
+.location-address-card small { color: #92969d; margin-top: 14px; }
