@@ -21,28 +21,30 @@ export function SiteFooter() {
           <Link href="/news">News</Link>
           <Link href="/events">Events</Link>
           <Link href="/photos">Photos</Link>
-          <Link href="/about">About EPYAL</Link>
           <Link href="/locations">Locations</Link>
         </div>
 
         <div className="footer-column">
-          <h3>Get Involved</h3>
-          <Link href="/volunteer">Volunteer</Link>
-          <Link href="/sponsors">Sponsorships</Link>
-          <Link href="/leadership">Leadership</Link>
-          <Link href="/contact">Contact</Link>
-          <Link href="/privacy">Privacy</Link>
+          <h3>Families & League</h3>
+          <Link href="/resources">Resource Center</Link>
+          <Link href="/parents">Parent Guide</Link>
+          <Link href="/coaches">Coaches & Volunteers</Link>
+          <Link href="/documents">Documents & Policies</Link>
+          <Link href="/faq">FAQ</Link>
+          <Link href="/board">Board & Governance</Link>
         </div>
 
         <div className="footer-column">
-          <h3>Registration</h3>
-          <a href={sportsConnectRoot} target="_blank" rel="noreferrer">
-            Sports Connect <ExternalLink size={12} />
-          </a>
+          <h3>Community</h3>
+          <Link href="/sponsors">Sponsorships</Link>
+          <Link href="/fundraising">Fundraising</Link>
+          <Link href="/leadership">Leadership</Link>
+          <Link href="/about">About EPYAL</Link>
+          <Link href="/contact">Contact</Link>
+          <Link href="/privacy">Privacy</Link>
           <a href={sportsConnectRoot} target="_blank" rel="noreferrer">
             Parent Login <ExternalLink size={12} />
           </a>
-          <p className="footer-note">Parent accounts, participant data and payments remain securely handled by Sports Connect.</p>
         </div>
       </div>
 
