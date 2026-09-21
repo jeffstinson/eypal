@@ -31,6 +31,7 @@ export function SiteFooter() {
           <Link href="/sponsors">Sponsorships</Link>
           <Link href="/leadership">Leadership</Link>
           <Link href="/contact">Contact</Link>
+          <Link href="/privacy">Privacy</Link>
         </div>
 
         <div className="footer-column">
