@@ -139,3 +139,6 @@ All public registration CTAs continue into Sports Connect. The EPYAL CMS does no
 ### CI
 
 Pull requests now run an independent GitHub Actions Next.js build check so Vercel is not the only compilation gate.
+
+
+Phase 4 CI verified and production deployment retriggered after Vercel rate-limit cooldown.
