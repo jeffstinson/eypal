@@ -2,14 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, ExternalLink, Mail } from "lucide-react";
-import { sports, sportsConnectRoot } from "@/lib/site-content";
+import { sports as seedSports, sportsConnectRoot } from "@/lib/site-content";
+import { getSports } from "@/lib/cms";
 
 export function generateStaticParams() {
-  return sports.map(sport => ({ slug: sport.slug }));
+  return seedSports.map(sport => ({ slug: sport.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
+  const sports = await getSports();
   const sport = sports.find(item => item.slug === slug);
   if (!sport) return { title: "Sport" };
   return {
@@ -20,6 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function SportDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  const sports = await getSports();
   const sport = sports.find(item => item.slug === slug);
   if (!sport) notFound();
 
