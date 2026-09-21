@@ -35,7 +35,6 @@ export default async function NewsArticlePage({ params }: { params: Promise<{ sl
     "@type": "NewsArticle",
     headline: item.title,
     description: item.excerpt,
-    datePublished: item.date,
     publisher: {
       "@type": "SportsOrganization",
       name: "East Pennsboro Youth Athletic League",
