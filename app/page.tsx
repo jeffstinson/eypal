@@ -105,7 +105,7 @@ export default async function HomePage() {
                   <div className="news-icon"><Trophy size={22} /></div>
                   <div>
                     <span className="meta-label">{item.category} • {item.date}</span>
-                    <h3>{item.title}</h3>
+                    <h3><Link href={`/news/${item.slug}`}>{item.title}</Link></h3>
                     <p>{item.excerpt}</p>
                   </div>
                 </article>
