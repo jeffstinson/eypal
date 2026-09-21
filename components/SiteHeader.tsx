@@ -13,7 +13,7 @@ const nav = [
   { href: "/photos", label: "Photos" },
   { href: "/volunteer", label: "Get Involved" },
   { href: "/sponsors", label: "Sponsors" },
-  { href: "/leadership", label: "Leadership" }
+  { href: "/resources", label: "Resources" }
 ];
 
 type Announcement = {
