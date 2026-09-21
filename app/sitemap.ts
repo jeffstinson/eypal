@@ -6,7 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "", "/sports", "/registration", "/news", "/events", "/photos", "/volunteer",
     "/sponsors", "/leadership", "/contact", "/about", "/locations", "/privacy",
-    "/resources", "/parents", "/coaches", "/documents", "/faq", "/board", "/fundraising"
+    "/resources", "/parents", "/coaches", "/documents", "/faq", "/safety", "/board", "/fundraising"
   ];
 
   return [
