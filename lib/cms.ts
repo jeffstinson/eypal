@@ -10,16 +10,45 @@ import {
   type Sponsor,
   type Sport
 } from "@/lib/site-content";
+import { generalFaq, resources as seedResources } from "@/lib/resource-content";
+import { newsEditorial } from "@/lib/news-content";
+
+export type CmsResource = {
+  id?: string;
+  title: string;
+  description: string;
+  href: string;
+  category: string;
+  external: boolean;
+};
+
+export type CmsFaq = {
+  id?: string;
+  question: string;
+  answer: string;
+  category: string;
+};
+
+export type CmsNewsPost = NewsItem & {
+  id?: string;
+  body?: string;
+  featured?: boolean;
+  seoTitle?: string;
+  seoDescription?: string;
+};
 
 function client() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   if (!url || !key) return null;
   return createClient(url, key, { auth: { persistSession: false } });
 }
 
 export function cmsConfigured() {
-  return Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+  return Boolean(
+    process.env.NEXT_PUBLIC_SUPABASE_URL &&
+    (process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
+  );
 }
 
 export async function getSports(): Promise<Sport[]> {
@@ -147,4 +176,116 @@ export async function getHomepageAnnouncement() {
     .maybeSingle();
 
   return data?.value || null;
+}
+
+
+export async function getNewsPost(slug: string): Promise<CmsNewsPost | null> {
+  const supabase = client();
+  if (!supabase) {
+    const seed = seedNews.find(item => item.slug === slug);
+    if (!seed) return null;
+    const editorial = newsEditorial[slug];
+    return {
+      ...seed,
+      body: editorial
+        ? [editorial.intro, ...editorial.sections.flatMap(section => [section.heading, ...section.paragraphs])].join("\n\n")
+        : seed.excerpt
+    };
+  }
+
+  const { data, error } = await supabase
+    .from("news_posts")
+    .select("*")
+    .eq("slug", slug)
+    .eq("published", true)
+    .maybeSingle();
+
+  if (error || !data) {
+    const seed = seedNews.find(item => item.slug === slug);
+    if (!seed) return null;
+    return { ...seed, body: newsEditorial[slug]?.intro || seed.excerpt };
+  }
+
+  return {
+    id: data.id,
+    slug: data.slug,
+    title: data.title,
+    date: data.display_date,
+    category: data.category,
+    excerpt: data.excerpt,
+    body: data.body || data.excerpt,
+    featured: Boolean(data.featured),
+    seoTitle: data.seo_title || undefined,
+    seoDescription: data.seo_description || undefined
+  };
+}
+
+export async function getResources(): Promise<CmsResource[]> {
+  const supabase = client();
+  if (!supabase) {
+    return seedResources.map(item => ({
+      title: item.title,
+      description: item.description,
+      href: item.href,
+      category: item.category,
+      external: Boolean(item.external)
+    }));
+  }
+
+  const { data, error } = await supabase
+    .from("resources")
+    .select("*")
+    .eq("published", true)
+    .order("sort_order");
+
+  if (error || !data?.length) {
+    return seedResources.map(item => ({
+      title: item.title,
+      description: item.description,
+      href: item.href,
+      category: item.category,
+      external: Boolean(item.external)
+    }));
+  }
+
+  return data.map((row: any) => ({
+    id: row.id,
+    title: row.title,
+    description: row.description,
+    href: row.href,
+    category: row.category,
+    external: Boolean(row.external)
+  }));
+}
+
+export async function getFaqs(): Promise<CmsFaq[]> {
+  const supabase = client();
+  if (!supabase) {
+    return generalFaq.map(item => ({
+      question: item.question,
+      answer: item.answer,
+      category: "General"
+    }));
+  }
+
+  const { data, error } = await supabase
+    .from("faqs")
+    .select("*")
+    .eq("published", true)
+    .order("sort_order");
+
+  if (error || !data?.length) {
+    return generalFaq.map(item => ({
+      question: item.question,
+      answer: item.answer,
+      category: "General"
+    }));
+  }
+
+  return data.map((row: any) => ({
+    id: row.id,
+    question: row.question,
+    answer: row.answer,
+    category: row.category
+  }));
 }
