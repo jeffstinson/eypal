@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight } from "lucide-react";
-import { getNews } from "@/lib/cms";
+import { getNewsPost } from "@/lib/cms";
 import { news as seedNews } from "@/lib/site-content";
 import { newsEditorial } from "@/lib/news-content";
 
@@ -12,24 +12,35 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const news = await getNews();
-  const item = news.find(entry => entry.slug === slug);
+  const item = await getNewsPost(slug);
   if (!item) return { title: "News" };
 
   return {
-    title: item.title,
-    description: item.excerpt,
+    title: item.seoTitle || item.title,
+    description: item.seoDescription || item.excerpt,
     alternates: { canonical: `/news/${item.slug}` }
   };
 }
 
+function CmsArticleBody({ body }: { body: string }) {
+  const blocks = body.split(/\n\s*\n/).map(block => block.trim()).filter(Boolean);
+  return (
+    <>
+      {blocks.map((block, index) => {
+        if (block.startsWith("## ")) return <h2 key={index}>{block.slice(3)}</h2>;
+        if (block.startsWith("### ")) return <h3 key={index}>{block.slice(4)}</h3>;
+        return <p key={index}>{block}</p>;
+      })}
+    </>
+  );
+}
+
 export default async function NewsArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const news = await getNews();
-  const item = news.find(entry => entry.slug === slug);
+  const item = await getNewsPost(slug);
   if (!item) notFound();
 
-  const editorial = newsEditorial[slug];
+  const editorial = !item.id ? newsEditorial[slug] : null;
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
@@ -62,18 +73,19 @@ export default async function NewsArticlePage({ params }: { params: Promise<{ sl
       <section className="section">
         <div className="container article-layout">
           <article className="article-body">
-            <p className="article-lead">{editorial?.intro || item.excerpt}</p>
-
-            {editorial?.sections?.map(section => (
-              <section key={section.heading}>
-                <h2>{section.heading}</h2>
-                {section.paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
-              </section>
-            ))}
-
-            {!editorial ? (
-              <div className="info-banner">This league update is being expanded. Check the related sport or registration page for the most current program information.</div>
-            ) : null}
+            {item.id && item.body ? (
+              <CmsArticleBody body={item.body} />
+            ) : (
+              <>
+                <p className="article-lead">{editorial?.intro || item.excerpt}</p>
+                {editorial?.sections?.map(section => (
+                  <section key={section.heading}>
+                    <h2>{section.heading}</h2>
+                    {section.paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+                  </section>
+                ))}
+              </>
+            )}
           </article>
 
           <aside className="article-sidebar">
@@ -82,7 +94,8 @@ export default async function NewsArticlePage({ params }: { params: Promise<{ sl
             <div className="article-links">
               {(editorial?.relatedLinks || [
                 { label: "League News", href: "/news" },
-                { label: "Registration", href: "/registration" }
+                { label: "Registration", href: "/registration" },
+                { label: "Parent Guide", href: "/parents" }
               ]).map(link => (
                 <Link href={link.href} key={link.href}>{link.label} <ArrowRight size={14} /></Link>
               ))}

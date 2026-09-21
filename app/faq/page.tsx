@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
-import { generalFaq } from "@/lib/resource-content";
+import { getFaqs } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions",
   description: "Answers to common questions about EPYAL registration, parents, coaching, locations, sponsorships and youth sports programs."
 };
 
-export default function FaqPage() {
+export default async function FaqPage() {
+  const generalFaq = await getFaqs();
   const schema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
