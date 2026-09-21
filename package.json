@@ -1,10 +1,25 @@
 {
-  "name": "epyal-website-demo",
+  "name": "epyal-website",
+  "version": "2.0.0",
   "private": true,
-  "version": "0.1.0",
-  "description": "EPYAL public website demo for Vercel",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
   "dependencies": {
+    "@supabase/ssr": "^0.7.0",
+    "@supabase/supabase-js": "^2.57.4",
+    "lucide-react": "^0.544.0",
+    "next": "16.3.5",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
     "resend": "^6.0.0"
   },
-  "type": "module"
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "@types/react": "^19.1.16",
+    "@types/react-dom": "^19.1.9",
+    "typescript": "^5.9.2"
+  }
 }
