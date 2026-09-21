@@ -3,14 +3,16 @@ import Link from "next/link";
 import { Camera, HandHeart, Trophy, Users } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
-import { sports, sportsConnectRoot } from "@/lib/site-content";
+import { sportsConnectRoot } from "@/lib/site-content";
+import { getSports } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Get Involved",
   description: "Volunteer, coach and support EPYAL youth athletics."
 };
 
-export default function VolunteerPage() {
+export default async function VolunteerPage() {
+  const sports = await getSports();
   return (
     <>
       <PageHero
