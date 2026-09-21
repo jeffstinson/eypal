@@ -3,14 +3,15 @@ import Link from "next/link";
 import { Camera, Download, ShieldCheck, Users } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
-import { sports } from "@/lib/site-content";
+import { getSports } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Photos",
   description: "EPYAL youth sports photography and album platform."
 };
 
-export default function PhotosPage() {
+export default async function PhotosPage() {
+  const sports = await getSports();
   return (
     <>
       <PageHero
