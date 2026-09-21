@@ -145,13 +145,20 @@ values
 ('EPYAL Player & Parent Code of Conduct','League expectations for sportsmanship, respect, attendance, equipment care and parent behavior.','https://tshq.bluesombrero.com/Default.aspx?tabid=2754793','Policies',true,true,10),
 ('Pennsylvania Child Abuse Clearances','Official Commonwealth information about clearances required for adults who work or volunteer with children.','https://www.pa.gov/agencies/dhs/resources/keep-kids-safe/child-abuse-clearances','Safety',true,true,20),
 ('Little League Volunteer Information','Official Little League overview of volunteering, applications, background checks and abuse-awareness training.','https://www.littleleague.org/volunteer/','Coaches',true,true,30),
-('EPYAL Baseball Parent Welcome Guide','A detailed guide for baseball families covering what happens after registration, season expectations and parent responsibilities.','https://tshq.bluesombrero.com/portals/21360/users/247/87/133124087/epyal-baseball-welcome-s25.pdf','Baseball',true,true,40)
-on conflict do nothing;
+('EPYAL Baseball Parent Welcome Guide','A detailed guide for baseball families covering what happens after registration, season expectations and parent responsibilities.','https://tshq.bluesombrero.com/portals/21360/users/247/87/133124087/epyal-baseball-welcome-s25.pdf','Baseball',true,true,40),
+('EPYAL Baseball Resources','Current baseball page with coaching requirements, coaching application, parent guide, injury form and donation information.','https://tshq.bluesombrero.com/Default.aspx?tabid=2741249','Baseball',true,true,50),
+('EPYAL Softball Volunteer Resources','Current softball page with Pennsylvania volunteer requirements, Little League volunteer forms and Code of Conduct links.','https://tshq.bluesombrero.com/Default.aspx?tabid=2013780','Softball',true,true,60),
+('EPYAL Flag Football Rules & Coaching Resources','Current flag football page with rule book, volunteer openings, coaching application and Code of Conduct links.','https://tshq.bluesombrero.com/Default.aspx?tabid=2741308','Flag Football',true,true,70),
+('CFA Youth Football','Capital Football Association league information and football resources.','https://www.cfayfl.com','Football',true,true,80),
+('EPYAL Cheer Information','Current cheer page with seasonal requirements, coaching information and football/basketball cheer details.','https://tshq.bluesombrero.com/Default.aspx?tabid=2741310','Cheer',true,true,90);
 
 insert into public.faqs (question,answer,category,published,sort_order)
 values
-('Where do I register my child for EPYAL sports?','Program information and registration status are published on this website. Parent login, participant registration, waivers and payment are completed through EPYAL’s existing Sports Connect / Blue Sombrero system.','Registration',true,10),
+('Where do I register my child for EPYAL sports?','Program information and registration status are published on this website. The final parent login, participant registration, waivers and payment are completed through EPYAL’s existing Sports Connect / Blue Sombrero system.','Registration',true,10),
 ('Do I need a separate account for the new EPYAL website?','No. The public website is designed for league information and communications. Parent registration accounts continue to live in Sports Connect.','Registration',true,20),
 ('How do I know when registration opens?','Use the Registration Center, subscribe to EPYAL email updates and follow the individual sport page. Registration windows vary by sport and season.','Registration',true,30),
-('How can I volunteer or coach?','Start with the Coaches & Volunteers page. Requirements vary by sport, and adults working with youth may need Pennsylvania clearances and sport-specific background checks or training.','Volunteers',true,40)
-on conflict do nothing;
+('Who should I contact with a sport-specific question?','Each sport page lists the current program directors and sport email address. The Leadership page also provides a league-wide contact directory.','Contacts',true,40),
+('How can I volunteer or coach?','Start with the Get Involved and Coaches & Volunteers pages. Coaching requirements vary by sport, and adults working with youth may need required Pennsylvania clearances and sport-specific background checks or training.','Volunteers',true,50),
+('Where can I find field or facility information?','The Locations page lists EPYAL’s primary facilities and common program locations. Team schedules may also use regional away sites.','Facilities',true,60),
+('How do I become an EPYAL sponsor?','Visit the Sponsors page or contact fundraising@epyal.com. The new website is structured to support league-wide, sport-specific and community partner visibility.','Sponsors',true,70),
+('Where will game and team photos live?','EPYAL Photos is being expanded from the Cheer photography portal into a league-wide home for sport and team albums.','Photos',true,80);
