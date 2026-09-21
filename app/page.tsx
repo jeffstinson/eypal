@@ -3,9 +3,17 @@ import { ArrowRight, CalendarDays, Camera, ExternalLink, HandHeart, ShieldCheck,
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { SectionHeading } from "@/components/SectionHeading";
 import { SportCard } from "@/components/SportCard";
-import { events, leadership, news, sponsors, sports, sportsConnectRoot } from "@/lib/site-content";
+import { sportsConnectRoot } from "@/lib/site-content";
+import { getEvents, getLeadership, getNews, getSponsors, getSports } from "@/lib/cms";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [sports, news, events, leadership, sponsors] = await Promise.all([
+    getSports(),
+    getNews(),
+    getEvents(),
+    getLeadership(),
+    getSponsors()
+  ]);
   const registrationSports = sports.filter(s => ["open", "soon", "waitlist"].includes(s.status)).slice(0, 4);
 
   return (
