@@ -729,3 +729,20 @@ main { min-height: 70vh; }
 @media (max-width: 620px) {
   .resource-table-row { grid-template-columns: 1fr; gap: 5px; }
 }
+
+.season-table .resource-table-row {
+  grid-template-columns: minmax(130px,.3fr) 1fr auto;
+}
+.section-dark .season-table {
+  background: #111318;
+  border-color: #34373d;
+}
+.section-dark .season-table .resource-table-row {
+  border-color: #34373d;
+}
+.section-dark .season-table .resource-table-row strong { color: #fff; }
+.section-dark .season-table .resource-table-row span { color: #b7bbc1; }
+
+@media (max-width: 620px) {
+  .season-table .resource-table-row { grid-template-columns: 1fr; }
+}
