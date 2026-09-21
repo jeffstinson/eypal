@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, CalendarDays, Camera, ExternalLink, HandHeart, ShieldCheck, Trophy, Users } from "lucide-react";
+import { ArrowRight, BookOpen, CalendarDays, Camera, ExternalLink, FileText, HandHeart, HelpCircle, ShieldCheck, Trophy, Users } from "lucide-react";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { SectionHeading } from "@/components/SectionHeading";
 import { SportCard } from "@/components/SportCard";
@@ -195,6 +195,45 @@ export default async function HomePage() {
                 </Link>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <SectionHeading
+            eyebrow="Parent & Coach Resources"
+            title="Everything families need in one place"
+            description="The old site scattered useful guides and policies across individual sport pages. The new Resource Center gives parents, coaches and volunteers a clear path to the information they actually need."
+          />
+          <div className="feature-card-grid">
+            <Link className="feature-card" href="/parents">
+              <BookOpen size={27} />
+              <h3>Parent Guide</h3>
+              <p>Registration, season expectations, sportsmanship, communication and what happens after you sign up.</p>
+              <span>For families <ArrowRight size={14} /></span>
+            </Link>
+            <Link className="feature-card" href="/coaches">
+              <Users size={27} />
+              <h3>Coaches & Volunteers</h3>
+              <p>Clearances, applications, coaching contacts and the steps adults need to help safely.</p>
+              <span>Get involved <ArrowRight size={14} /></span>
+            </Link>
+            <Link className="feature-card" href="/documents">
+              <FileText size={27} />
+              <h3>Documents & Policies</h3>
+              <p>Code of Conduct, parent guides, rules, volunteer resources and sport-specific forms.</p>
+              <span>Open resources <ArrowRight size={14} /></span>
+            </Link>
+            <Link className="feature-card" href="/faq">
+              <HelpCircle size={27} />
+              <h3>League FAQ</h3>
+              <p>Quick answers about registration, Sports Connect, contacts, facilities, volunteering and photos.</p>
+              <span>Find an answer <ArrowRight size={14} /></span>
+            </Link>
+          </div>
+          <div className="center-actions">
+            <Link className="button button-dark" href="/resources">Open Resource Center <ArrowRight size={15} /></Link>
           </div>
         </div>
       </section>
