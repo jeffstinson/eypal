@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
-import { leadership } from "@/lib/site-content";
+import { getLeadership } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Leadership",
   description: "EPYAL board and sport leadership directory."
 };
 
-export default function LeadershipPage() {
+export default async function LeadershipPage() {
+  const leadership = await getLeadership();
   return (
     <>
       <PageHero
