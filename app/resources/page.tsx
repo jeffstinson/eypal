@@ -26,7 +26,7 @@ export default function ResourcesPage() {
             title="Find what you need without hunting through old pages"
             description="The current EPYAL site has valuable information spread across individual sports. This hub brings the most useful material together."
           />
-          <div className="feature-card-grid">
+          <div className="feature-card-grid resource-hub-grid">
             <Link className="feature-card" href="/parents"><BookOpen size={27} /><h3>Parent Guide</h3><p>Registration, season expectations, sportsmanship, schedule changes and who to contact.</p><span>Parent resources →</span></Link>
             <Link className="feature-card" href="/coaches"><Users size={27} /><h3>Coaches & Volunteers</h3><p>Clearances, applications, coaching expectations and ways to help across the league.</p><span>Volunteer resources →</span></Link>
             <Link className="feature-card" href="/documents"><FileText size={27} /><h3>Documents & Policies</h3><p>Code of Conduct, parent guides, rule books, volunteer requirements and external governing resources.</p><span>Open documents →</span></Link>
