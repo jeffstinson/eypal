@@ -83,3 +83,8 @@ The planned production phase is to move sports, registration windows, announceme
 
 This is a working public-site demo, not a replacement for Sports Connect.
 Do not copy child DOBs, medical data, registration payments, waivers, or parent credentials into this site.
+
+
+## Deployment trigger
+
+Fresh production deployment trigger after Vercel Git connection was established on 2026-09-20.
