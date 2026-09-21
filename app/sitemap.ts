@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { sports } from "@/lib/site-content";
+import { news, sports } from "@/lib/site-content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://epyal.stincebuilt.com";
@@ -21,6 +21,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: .8
+    })),
+    ...news.map(item => ({
+      url: `${base}/news/${item.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: .65
     }))
   ];
 }
