@@ -30,6 +30,7 @@ export function SiteFooter() {
           <Link href="/parents">Parent Guide</Link>
           <Link href="/coaches">Coaches & Volunteers</Link>
           <Link href="/documents">Documents & Policies</Link>
+          <Link href="/safety">Safety & Clearances</Link>
           <Link href="/faq">FAQ</Link>
           <Link href="/board">Board & Governance</Link>
         </div>
