@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { getHomepageAnnouncement } from "@/lib/cms";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://epyal.stincebuilt.com"),
@@ -21,11 +22,12 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const announcement = await getHomepageAnnouncement();
   return (
     <html lang="en">
       <body>
-        <SiteHeader />
+        <SiteHeader announcement={announcement} />
         <main>{children}</main>
         <SiteFooter />
       </body>
