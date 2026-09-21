@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import { Newspaper } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
-import { news } from "@/lib/site-content";
+import { getNews } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "News",
   description: "Latest EPYAL news and league updates."
 };
 
-export default function NewsPage() {
+export default async function NewsPage() {
+  const news = await getNews();
   return (
     <>
       <PageHero
