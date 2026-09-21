@@ -2,14 +2,15 @@ import type { Metadata } from "next";
 import { ExternalLink, FileText } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
-import { resources } from "@/lib/resource-content";
+import { getResources } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Documents & Policies",
   description: "EPYAL youth sports documents, policies, parent guides, volunteer requirements and rules."
 };
 
-export default function DocumentsPage() {
+export default async function DocumentsPage() {
+  const resources = await getResources();
   const categories = [...new Set(resources.map(item => item.category))];
 
   return (
