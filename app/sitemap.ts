@@ -5,7 +5,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://epyal.stincebuilt.com";
   const staticRoutes = [
     "", "/sports", "/registration", "/news", "/events", "/photos", "/volunteer",
-    "/sponsors", "/leadership", "/contact", "/about", "/locations", "/privacy"
+    "/sponsors", "/leadership", "/contact", "/about", "/locations", "/privacy",
+    "/resources", "/parents", "/coaches", "/documents", "/faq", "/board", "/fundraising"
   ];
 
   return [
