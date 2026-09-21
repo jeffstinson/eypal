@@ -31,6 +31,7 @@ export default function ResourcesPage() {
             <Link className="feature-card" href="/coaches"><Users size={27} /><h3>Coaches & Volunteers</h3><p>Clearances, applications, coaching expectations and ways to help across the league.</p><span>Volunteer resources →</span></Link>
             <Link className="feature-card" href="/documents"><FileText size={27} /><h3>Documents & Policies</h3><p>Code of Conduct, parent guides, rule books, volunteer requirements and external governing resources.</p><span>Open documents →</span></Link>
             <Link className="feature-card" href="/faq"><HelpCircle size={27} /><h3>Frequently Asked Questions</h3><p>Quick answers about registration, accounts, volunteering, facilities, sponsors and photos.</p><span>Browse FAQs →</span></Link>
+            <Link className="feature-card" href="/safety"><ShieldCheck size={27} /><h3>Safety & Clearances</h3><p>Official Pennsylvania clearance information, concussion resources and youth-sports safety links.</p><span>Safety resources →</span></Link>
           </div>
         </div>
       </section>
